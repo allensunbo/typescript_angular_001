@@ -4,10 +4,10 @@
 /// <reference path='angular.d.ts' />
 // alert('hello world in TypeScript!');
 (function (angular) {
-    var app = angular.module('greeter');
-    app.run(function () {
+   var app = angular.module('greeter', []);
+   app.run(function () {
 
-    });
+   });
 
 
 })(angular);

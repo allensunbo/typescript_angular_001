@@ -2,13 +2,18 @@
  * Created by bsun on 1/31/15.
  */
 /// <reference path='../angular.d.ts' />
-/// <reference path="appModel.ts" />
+/// <reference path='./appModel.ts' />
+
+interface IAppCtrlScope extends ng.IScope {
+   message: string;
+}
 
 (function (angular) {
-   angular.module('greeter', [])
+
+   var app = angular.module('myApp')
       .service('GreeterService', function () {
 
-         function greeter(student:AppModel.Student) {
+         function greeter(student:com.axioma.model.AppModel.Student) {
             return "Hello, ";// + student.firstname + " " + student.lastname;
          }
 
@@ -16,13 +21,17 @@
       })
 
       .service('GreeterService2', function () {
-         function greeter(student:AppModel.Student) {
+         function greeter(student:com.axioma.model.AppModel.Student) {
             return student.getName();
          }
 
          return greeter;
       });
 
+
+   app.controller('GreeterCtrl', function ($scope:IAppCtrlScope) {
+      $scope.message = 'This comes from GreeterCtrl!';
+   });
 })(angular);
 
 

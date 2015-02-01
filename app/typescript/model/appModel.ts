@@ -1,4 +1,4 @@
-module AppModel {
+module com.axioma.model.AppModel {
 
    export interface Person {
       getName():string;
