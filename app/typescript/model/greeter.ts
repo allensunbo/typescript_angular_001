@@ -3,6 +3,7 @@
  */
 /// <reference path='../angular.d.ts' />
 /// <reference path='./appModel.ts' />
+/// <reference path='../directive.ts' />
 
 interface IAppCtrlScope extends ng.IScope {
    message: string;
@@ -32,6 +33,9 @@ interface IAppCtrlScope extends ng.IScope {
    app.controller('GreeterCtrl', function ($scope:IAppCtrlScope) {
       $scope.message = 'This comes from GreeterCtrl!';
    });
+
+   app.directive('changeName', com.axioma.directive.changeName);
+
 })(angular);
 
 
