@@ -4,10 +4,7 @@
 /// <reference path='../angular.d.ts' />
 /// <reference path='./appModel.ts' />
 /// <reference path='../directive.ts' />
-
-interface IAppCtrlScope extends ng.IScope {
-   message: string;
-}
+/// <reference path='./greeter.d.ts' />
 
 (function (angular) {
 
@@ -30,8 +27,11 @@ interface IAppCtrlScope extends ng.IScope {
       });
 
 
-   app.controller('GreeterCtrl', function ($scope:IAppCtrlScope) {
-      $scope.message = 'This comes from GreeterCtrl!';
+   app.controller('GreeterCtrl', function ($scope:com.axioma.interface.IAppCtrlScope) {
+      $scope.content = 'This content from GreeterCtrl!';
+      $scope.doClick = function(content) {
+         console.log(content);
+      }
    });
 
    app.directive('changeName', com.axioma.directive.changeName);
