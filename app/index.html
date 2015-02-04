@@ -32,10 +32,11 @@
 
 <div ng-view></div>
 
-<div ng-controller="GreeterCtrl">
-   {{content}}
-   <button ng-click="doClick((content.toUpperCase()))">submit</button>
+<div ng-controller="GreeterCtrl as greeter">
+   {{greeter.content}}
+   <button ng-click="greeter.doClick((greeter.content.toUpperCase()))">submit</button>
    <div change-name>haha</div>
+   <styled-panel>content of panel<br>second line</styled-panel>
 </div>
 <!--<div>Angular seed app: v<span app-version></span></div>-->
 
@@ -53,6 +54,7 @@
 <script src="components/version/interpolate-filter.js"></script>
 <script src="compiled/model/appModel.js"></script>
 <script src="compiled/directive.js"></script>
+<script src="compiled/directive2.js"></script>
 <script src="compiled/model/greeter.js"></script>
 </body>
 </html>
