@@ -6,4 +6,6 @@ declare module com.axioma.interface {
       content: string;
       doClick(content:string): void;
    }
+
+
 }
