@@ -7,23 +7,26 @@
 (function (angular) {
 
    var app = angular.module('myApp')
-      .service('UserService', function () {
+      .service('UserService', function ($q:ng.IQService, $timeout:ng.ITimeoutService) {
          return {
-            getUser: function (id) {
-               return {
-                  id: id, name: id + '-john'
-               }
-
+            getUser: function (id):ng.IPromise<any> {
+               var defer:ng.IDeferred<any> = $q.defer();
+               $timeout(function () {
+                  defer.resolve({
+                     id: id, name: id + '-john'
+                  });
+               }, 2000);
+               return defer.promise;
             }
          }
       })
 
       .provider('UserProvider', function () {
          this.$get = function (UserService) {
-            return function (id) {
+            return function (id):ng.IPromise<any> {
                return UserService.getUser(id);
-            }
-         };
+            };
+         }
       });
 
 
